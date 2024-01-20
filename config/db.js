@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
-
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 async function connectDB(){
     try{
-      const connect =  await mongoose.connect("mongodb+srv://parthiv:NCKLFYonqI57jWow@cluster0.ieihfub.mongodb.net/");
+      const connect =  await mongoose.connect(process.env.MONGO_URL);
       console.log("MongoDB connected");
     }catch(err){
         console.log(err);
     }
 }
 
-module.exports = {connectDB};
+export default connectDB;
